@@ -1,5 +1,4 @@
-﻿using System;
-
+﻿
 namespace FactoryPattern.Payment.ConcretePayments
 {
 	public class GooglePayPayment : IPayment
