@@ -16,3 +16,12 @@ payment.Pay(75.00);
 //but this requires you to maintain a PaymentFactory class that changes every time a type gets added.
 payment = PaymentFactory.Create(PaymentMethodEnum.CreditCard);
 payment.Pay(75.00);
+
+
+// Using a generic method, you can have the benefit of both of the above methods by using dependency injection. 
+// Note this method doesn't require a payment factory class that you have to change each time, everything is decoupled. 
+PaymentProcessor processor = new();
+processor.ProcessPayment<PayPalFactory>(50.0);
+processor.ProcessPayment<CreditCardFactory>(75.0);
+processor.ProcessPayment<GooglePayFactory>(100.0);
+
